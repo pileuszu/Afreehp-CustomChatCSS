@@ -1,0 +1,107 @@
+/* Chat Wrapper */
+.chat_wrap {
+    background: transparent;
+    font-size: 40px;
+    height: 100%;
+    overflow: hidden;
+    display: block;
+    margin: 8px;
+}
+/* Chat List Items */
+.item_box.item_chat_0 .chat_list {
+    display: flex;
+    flex-direction: column;
+  align-items: flex-end; /* 기본 정렬은 왼쪽 */
+}
+
+
+/* Chat List Items (Before) */
+.item_box.item_chat_0 .chat_list li.naver::before {
+    content: '';
+    width: 0.5em;
+    height: 0.5em;
+    position: absolute;
+    border-radius: 100%;
+    left: 0px;
+    top: 0px;
+    background: #00FFAF; /* Default green dot */
+}
+
+/* For .bj class, change the dot to purple */
+.item_box.item_chat_0 .chat_list li.naver.bj::before {
+    background: #9b4de0; /* Purple dot */
+}
+
+/* Chat Item Styling for .bj class */
+.item_box.item_chat_0 .chat_list li.naver.bj {
+    display: flex; /* Use flexbox for alignment */
+    align-self: flex-end; /* .bj는 오른쪽 정렬 */
+    background: transparent;
+    color: #9b4de0 !important; /* Set text color to purple */
+    font-weight: 700 !important;
+    font-family: 'CookieRun-Regular' !important;
+    margin: 0.4em;
+    padding: 0.4em 0.8em;
+    text-shadow: none !important;
+    letter-spacing: 2px;
+    font-size: 40px !important;
+    border-radius: 0.9em;
+    width: fit-content !important;
+    box-shadow: 0px 0.2em 5px 0px rgba(155, 77, 224, 0.7); /* Purple glow effect for the box */
+    animation: open .5s cubic-bezier(0, 0.62, 0, 0.98) forwards !important;
+    margin-right: 0;
+}
+
+/* Chat Item Styling for non-.bj class */
+.item_box.item_chat_0 .chat_list li.naver:not(.bj) {
+    font-family: 'CookieRun-Regular' !important;
+    background: transparent;
+    margin: 0.4em;
+    padding: 0.4em 0.8em;
+    text-shadow: none !important;
+    letter-spacing: 2px;
+    font-size: var(--폰트_사이즈) !important;
+    text-align: var(--텍스트_정렬) !important;
+    border-radius: 0.9em;
+    width: fit-content !important;
+    box-shadow: 0px 0.2em 5px 0px rgba(0, 255, 175, 0.5); /* Adjusted glow effect for the box */
+    animation: open .5s cubic-bezier(0, 0.62, 0, 0.98) forwards !important;
+	align-self: flex-start; /* not(.bj)는 왼쪽 정렬 */
+      }
+
+/* Chat Item Text Color for .bj */
+.item_box.item_chat_0 .chat_list li.naver.bj p.text {
+    color: #9b4de0 !important; /* Purple text for .bj */
+}
+
+/* Chat Item Text Color for non-.bj */
+.item_box.item_chat_0 .chat_list li.naver:not(.bj) p.text {
+    color: #00FFAF !important; /* Green text for non-.bj */
+}
+
+/* Hide nick */
+.item_box.item_chat_0 .chat_list li.naver p.nick {
+    display: none;
+}
+
+/* Animation for opening */
+@keyframes open {
+    0% {
+        margin: 0.4em 0.4em -1em 0.4em;
+        transform: translateY(2em);
+        opacity: 0;
+    }
+    100% {
+        margin: 0.4em 0.4em 0.4em 0.4em;
+        transform: translateY(0em);
+        opacity: 1;
+    }
+}
+
+/* Font Face for CookieRun */
+@font-face {
+    font-family: 'CookieRun-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/CookieRun-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
